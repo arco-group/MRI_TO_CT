@@ -1,0 +1,47 @@
+seed: 0
+exp_name: dualgan #where to save the results on "results"
+exp_name_excel: dualgan
+
+device:
+  cuda_device: cuda
+  gpu_num_workers: 4
+  prefetch_factor: 2
+
+data:
+  cv: 5
+  fold_dir: ./data/k_fold_cross_validation/folds_2d/folds_2d_AB #dataset
+  img_dim: 256
+  model_dir: ./models
+  report_dir: ./results
+  batch_size: 128
+
+model:
+  model_name: dualgan
+  pretrained_model: dualgan
+  SAVE_MODEL: True
+
+trainer:
+  optimizer:
+    lr: 0.0001
+  max_epochs: 300
+  early_stopping: 50
+  warm_up: 50
+
+  # DualGAN losses
+  lambda_adv: 1
+  lambda_cycle: 10
+  lambda_gp: 10
+  n_critic: 5
+
+  # checkpoint overwrite
+  ckpt_every: 50
+
+  CHECKPOINT_G_AB: "G_AB.pth.tar"
+  CHECKPOINT_G_BA: "G_BA.pth.tar"
+  CHECKPOINT_D_A: "D_A.pth.tar"
+  CHECKPOINT_D_B: "D_B.pth.tar"
+
+output:
+  save_img_output: False #True
+  save_png: False
+  save_nrrd: False

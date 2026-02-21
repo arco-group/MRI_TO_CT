@@ -1,0 +1,35 @@
+seed: 0
+exp_name: pixelda
+
+device:
+  cuda_device: cuda
+  gpu_num_workers: 4
+
+data:
+  cv: 5
+  fold_dir: ./data/k_fold_cross_validation/folds_2d/folds_2d_AB
+  img_dim: 256
+  model_dir: ./models
+  report_dir: ./results
+  batch_size: 128
+  label_col: center
+
+model:
+  model_name: pixelDA
+  n_residual_blocks: 6
+  out_activation: sigmoid
+
+trainer:
+  optimizer:
+    lr: 0.0002
+  max_epochs: 300
+  warm_up: 50
+  early_stopping: 50
+  ckpt_every: 50
+  latent_dim: 8
+  lambda_adv: 1.0
+  lambda_task: 0.1
+
+  CHECKPOINT_G: "G_pixelda.pth.tar"
+  CHECKPOINT_D: "D_pixelda.pth.tar"
+  CHECKPOINT_C: "C_pixelda.pth.tar"

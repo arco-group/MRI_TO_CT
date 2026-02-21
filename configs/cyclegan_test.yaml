@@ -1,0 +1,37 @@
+seed: 0
+exp_name: cyclegan #where to save the results on "results"
+exp_name_excel: cyclegan #file's name
+
+device:
+  cuda_device: cuda
+  gpu_num_workers: 4
+
+data:
+  cv: 5
+  fold_dir: ./data/k_fold_cross_validation/folds_2d/folds_2d_AB #dataset
+  img_dim: 256
+  model_dir: ./models
+  report_dir: ./results
+  batch_size: 16
+  dir: 0
+
+model:
+  model_name: cycle_gan
+  pretrained_model: cyclegan
+  CHECKPOINT_GEN_REC: "genrec.pth.tar"  # MRI->CT
+
+trainer:
+  optimizer:
+    lr: 0.00001
+  early_stopping: 50
+  warm_up: 50
+  max_epochs: 300
+  LAMBDA_IDENTITY: 5
+  LAMBDA_CYCLE: 10
+  CHECKPOINT_GEN_REC: "genrec.pth.tar"
+  CHECKPOINT_GEN_LE: "genle.pth.tar"
+  CHECKPOINT_CRITIC_REC: "criticrec.pth.tar"
+  CHECKPOINT_CRITIC_LE: "criticle.pth.tar"
+
+output:
+  save_img_output: false

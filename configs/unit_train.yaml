@@ -1,0 +1,46 @@
+seed: 0
+exp_name: unit #where to save the results on "results"
+exp_name_excel: unit  # file's name
+
+device:
+  cuda_device: cuda
+  gpu_num_workers: 12
+
+data:
+  cv: 5
+  fold_dir: ./data/k_fold_cross_validation/folds_2d/folds_2d_AB #dataset
+  img_dim: 256
+  model_dir: ./models
+  report_dir: ./results
+  batch_size: 32
+
+model:
+  model_name: unit
+  dim: 64
+  n_downsample: 2
+  SAVE_MODEL: True
+
+trainer:
+  optimizer:
+    lr: 0.0001
+  early_stopping: 50
+  warm_up: 50
+  max_epochs: 300
+
+  lambda_0: 10
+  lambda_1: 0.1
+  lambda_2: 100
+  lambda_3: 0.1
+  lambda_4: 100
+
+  CHECKPOINT_MAIN: "UNIT_main.pth.tar"
+  CHECKPOINT_E1: "E1.pth.tar"
+  CHECKPOINT_E2: "E2.pth.tar"
+  CHECKPOINT_G1: "G1.pth.tar"
+  CHECKPOINT_G2: "G2.pth.tar"
+  CHECKPOINT_D1: "D1.pth.tar"
+  CHECKPOINT_D2: "D2.pth.tar"
+
+output:
+  save_img_output: true
+

@@ -1,0 +1,11 @@
+seed: 0
+
+data:
+  cv:  5
+  data_file: ./data/info_dataset/dataset_slice_wc_ww_prepr.csv
+  fold_dir: ./data/k_fold_cross_validation/folds_2d
+
+train:
+  train_size: 0.8
+  val_size: 0.2
+  test_size: 0.2

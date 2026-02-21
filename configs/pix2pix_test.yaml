@@ -1,0 +1,38 @@
+seed: 0
+exp_name: pix2pix #results folder name
+exp_name_excel: pix2pix_AB #name file excel
+
+device:
+  cuda_device: cuda
+  gpu_num_workers: 2
+
+data:
+  cv: 5
+  fold_dir: ./data/k_fold_cross_validation/folds_2d/folds_2d_AB #name dataset
+  img_dim: 256
+  model_dir: ./models
+  report_dir: ./results
+  batch_size: 128
+
+model:
+  model_name: pix2pix
+  pretrained_model: pix2pix_AB #models weights folder name
+  SAVE_MODEL: True
+
+trainer:
+  optimizer:
+    lr: 0.0002
+  early_stopping: 50
+  warm_up: 50
+  max_epochs: 300
+  L1_LAMBDA: 100
+  LAMBDA_GP: 10
+  CHECKPOINT_DISC: "disc.pth.tar"
+  CHECKPOINT_GEN: "gen.pth.tar"
+
+output:
+  save_img_output: False #True if I want save the images
+  save_png: False
+  save_nrrd: False
+
+

@@ -1,0 +1,39 @@
+seed: 0
+exp_name: cogan #where to save the results on "results"
+exp_name_excel: cogan #file's name
+
+device:
+  cuda_device: cuda
+  gpu_num_workers: 4
+
+data:
+  cv: 5
+  fold_dir: ./data/k_fold_cross_validation/folds_2d/folds_2d_AB
+  img_dim: 256
+  model_dir: ./models
+  report_dir: ./results
+  batch_size: 32
+  dir: 0
+
+model:
+  model_name: cogan
+  dim: 64
+  n_downsample: 2
+  n_residual: 4
+  out_activation: sigmoid
+
+trainer:
+  optimizer:
+    lr: 0.0001
+  early_stopping: 50
+  warm_up: 50
+  max_epochs: 300
+
+  lambda_gan: 1
+  lambda_cyc: 10
+  lambda_id: 5
+
+  ckpt_every: 50
+
+  CHECKPOINT_G: "G_cogan.pth.tar"
+  CHECKPOINT_D: "D_cogan.pth.tar"

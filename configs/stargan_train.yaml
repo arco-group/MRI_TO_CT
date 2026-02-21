@@ -1,0 +1,33 @@
+seed: 0
+exp_name: stargan_TOT
+
+device:
+  cuda_device: cuda
+  gpu_num_workers: 4
+
+data:
+  cv: 5
+  fold_dir: ./data/k_fold_cross_validation/folds_2d/folds_2d_AB
+  img_dim: 256
+  model_dir: ./models
+  report_dir: ./results
+  batch_size: 64
+
+model:
+  model_name: stargan
+  residual_blocks: 6
+  n_strided: 6
+  SAVE_MODEL: True
+
+trainer:
+  optimizer:
+    lr: 0.0002
+  early_stopping: 50
+  warm_up: 50
+  max_epochs: 300
+  lambda_cls: 1
+  lambda_rec: 10
+  lambda_gp: 10
+  n_critic: 5
+  CHECKPOINT_G: "G_stargan.pth.tar"
+  CHECKPOINT_D: "D_stargan.pth.tar"

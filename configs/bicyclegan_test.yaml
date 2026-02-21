@@ -1,0 +1,37 @@
+seed: 0
+exp_name: bicyclegan #where to save the results of "results"
+exp_name_excel: bicyclegan #file's name
+
+device:
+  cuda_device: cuda
+  gpu_num_workers: 4
+
+data:
+  cv: 5
+  fold_dir: ./data/k_fold_cross_validation/folds_2d/folds_2d_AB #the reference dataset
+  img_dim: 256
+  model_dir: ./models
+  report_dir: ./results
+  batch_size: 8
+
+model:
+  model_name: bicyclegan
+  pretrained_model: bicyclegan
+  latent_dim: 8
+
+trainer:
+  optimizer:
+    lr: 0.0002
+  early_stopping: 50
+  warm_up: 50
+  max_epochs: 300
+  LAMBDA_PIXEL: 10.0
+  LAMBDA_LATENT: 0.5
+  LAMBDA_KL: 0.01
+  CHECKPOINT_GEN: "gen.pth.tar"
+  CHECKPOINT_ENC: "enc.pth.tar"
+  CHECKPOINT_DISC_VAE: "disc_vae.pth.tar"
+  CHECKPOINT_DISC_LR: "disc_lr.pth.tar"
+
+output:
+  save_img_output: True

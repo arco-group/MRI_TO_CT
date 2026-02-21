@@ -1,0 +1,46 @@
+seed: 0
+exp_name: munit #where to save the results on "results"
+exp_name_excel: munit #file's name
+
+device:
+  cuda_device: cuda
+  gpu_num_workers: 4
+
+data:
+  cv: 5
+  fold_dir: ./data/k_fold_cross_validation/folds_2d/folds_2d_AB #Dataset
+  img_dim: 256
+  model_dir: ./models
+  report_dir: ./results
+  batch_size: 32
+
+model:
+  model_name: munit
+  pretrained_model: munit
+  dim: 64
+  n_downsample: 2
+  n_residual: 3
+  style_dim: 8
+  SAVE_MODEL: False
+
+trainer:
+  optimizer:
+    lr: 0.0001
+  early_stopping: 50
+  warm_up: 50
+  max_epochs: 300
+  LAMBDA_GAN: 1
+  LAMBDA_ID: 10
+  LAMBDA_STYLE: 1
+  LAMBDA_CONTENT: 1
+  LAMBDA_CYCLE: 0
+  CHECKPOINT_ENC1: "enc1.pth.tar"
+  CHECKPOINT_DEC1: "dec1.pth.tar"
+  CHECKPOINT_ENC2: "enc2.pth.tar"
+  CHECKPOINT_DEC2: "dec2.pth.tar"
+  CHECKPOINT_D1: "disc1.pth.tar"
+  CHECKPOINT_D2: "disc2.pth.tar"
+output:
+  save_img_output: True
+  save_png: False
+  save_nrrd: False
