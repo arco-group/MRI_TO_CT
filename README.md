@@ -12,13 +12,13 @@ In this case, the path is data/k_fold_cross_validation/folds_2d/folds_2d_AB.
 Inside the "folds_2d_AB" directory, there are five folders corresponding to the five-fold cross-validation for the abdominal anatomical district (AB). Within each fold directory, .CSV files are provided containing the relative paths to the dataset images.
 3. "src": contains "model" and "utils" folders. The "model" folder includes subfolders for Bicyclegan, Cogan, Cyclegan, Discogan, Dualgan, Munit, PixPix, PixelDA, Stargan and Unit, each containing specific model code. The "utils" folder includes the "util_general.py", it allows saving and loading model checkpoints (including model weights and optimizer state), both during training and testing, with the option to remap the device and update the learning rate, and the "util_data.py" code for data loading and preprocessing utilities for an MRI-to-CT deep learning workflow.
 4. The "metrics.xlsx" file reports the evaluation metric values for all the considered models. Each model, except for PixelDA, was evaluated under seven different training and testing configurations:
-a) AB: trained and tested on the abdominal dataset (AB);
-b) HN: trained and tested on the head-and-neck dataset (HN);
-c) TH: trained and tested on the thoracic dataset (TH);
-d) ALL_AB: trained on the full ALL dataset (AB + HN + TH) and tested on the AB dataset;
-e) ALL_HN: trained on the full ALL dataset and tested on the HN dataset;
-f) ALL_TH: trained on the full ALL dataset and tested on the TH dataset;
-g) ALL: trained and tested on the full ALL dataset (AB + HN + TH).
+a) AB trained and tested on the abdominal dataset (AB);
+b) HN trained and tested on the head-and-neck dataset (HN);
+c) TH trained and tested on the thoracic dataset (TH);
+d) ALL_AB trained on the full ALL dataset (AB + HN + TH) and tested on the AB dataset;
+e) ALL_HN trained on the full ALL dataset and tested on the HN dataset;
+f) ALL_TH trained on the full ALL dataset and tested on the TH dataset;
+g) ALL trained and tested on the full ALL dataset (AB + HN + TH).
 
 This structure allows the analysis of both intra-domain performance (train/test on the same anatomical district) and the cross-domain generalization capability of the models.
 
