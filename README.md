@@ -11,7 +11,15 @@ The code is organized into three folders:
 In this case, the path is data/k_fold_cross_validation/folds_2d/folds_2d_AB.
 Inside the "folds_2d_AB" directory, there are five folders corresponding to the five-fold cross-validation for the abdominal anatomical district (AB). Within each fold directory, .CSV files are provided containing the relative paths to the dataset images.
 3. "src": contains "model" and "utils" folders. The "model" folder includes subfolders for Bicyclegan, Cogan, Cyclegan, Discogan, Dualgan, Munit, PixPix, PixelDA, Stargan and Unit, each containing specific model code. The "utils" folder includes the "util_general.py", it allows saving and loading model checkpoints (including model weights and optimizer state), both during training and testing, with the option to remap the device and update the learning rate, and the "util_data.py" code for data loading and preprocessing utilities for an MRI-to-CT deep learning workflow.
-4. The "metrics.xlsx" file reports the evaluation metric values for all the considered models. Each model, except for PixelDA, was evaluated under seven different training and testing configurations:
+
+
+For each model (Bicyclegan, Cogan, Cyclegan, Discogan, Dualgan, Munit, PixPix, PixelDA, Stargan and Unit), you can run training or testing code. These codes are located in the "src -> model -> Bicyclegan/Cogan/Cyclegan/Discogan/Dua/Munit/ PixPix/PixelDA/Stargan/Unit" folders.
+
+1. Running the training code trains the model on the public dataset(SynthRAD2025). Experiment parameters can be set using the configuration files "bicyclegan_train.yaml", "cogan_train.yaml","cyclegan_train.yaml", "discogan_train.yaml", "dualgan_train.yaml", "munit_train.yaml", "pix2pix_train.yaml", "pixelda_train.yaml", "stargan_train.yaml" or "unit_train.yaml".
+2. Running the test code tests the trained model on the desired dataset. Experiment parameters, including the test dataset, can be set using the configuration files "bicyclegan_test.yaml", "cogan_test.yaml","cyclegan_test.yaml", "discogan_test.yaml", "dualgan_test.yaml", "munit_test.yaml", "pix2pix_test.yaml", "pixelda_test.yaml", "stargan_test.yaml" or "unit_test.yaml".
+
+# Documents
+1. The "metrics.xlsx" file reports the evaluation metric values for all the considered models. Each model, except for PixelDA, was evaluated under seven different training and testing configurations:
 a) AB trained and tested on the abdominal dataset (AB);
 b) HN trained and tested on the head-and-neck dataset (HN);
 c) TH trained and tested on the thoracic dataset (TH);
@@ -19,13 +27,9 @@ d) ALL_AB trained on the full ALL dataset (AB + HN + TH) and tested on the AB da
 e) ALL_HN trained on the full ALL dataset and tested on the HN dataset;
 f) ALL_TH trained on the full ALL dataset and tested on the TH dataset;
 g) ALL trained and tested on the full ALL dataset (AB + HN + TH).
-
 This structure allows the analysis of both intra-domain performance (train/test on the same anatomical district) and the cross-domain generalization capability of the models.
 
-For each model (Bicyclegan, Cogan, Cyclegan, Discogan, Dualgan, Munit, PixPix, PixelDA, Stargan and Unit), you can run training or testing code. These codes are located in the "src -> model -> Bicyclegan/Cogan/Cyclegan/Discogan/Dua/Munit/ PixPix/PixelDA/Stargan/Unit" folders.
-
-1. Running the training code trains the model on the public dataset(SynthRAD2025). Experiment parameters can be set using the configuration files "bicyclegan_train.yaml", "cogan_train.yaml","cyclegan_train.yaml", "discogan_train.yaml", "dualgan_train.yaml", "munit_train.yaml", "pix2pix_train.yaml", "pixelda_train.yaml", "stargan_train.yaml" or "unit_train.yaml".
-2. Running the test code tests the trained model on the desired dataset. Experiment parameters, including the test dataset, can be set using the configuration files "bicyclegan_test.yaml", "cogan_test.yaml","cyclegan_test.yaml", "discogan_test.yaml", "dualgan_test.yaml", "munit_test.yaml", "pix2pix_test.yaml", "pixelda_test.yaml", "stargan_test.yaml" or "unit_test.yaml".
+2. The file GAN_families.xlsx reports the table summarizing the characteristics of the five GAN families.
 
 # Contact
 For questions and comments, feel free to contact: alessandro.pesci@unicampus.it, valerio.guarrasi@unicampus.it
