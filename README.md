@@ -14,8 +14,8 @@ Inside the "folds_2d_AB" directory, there are five folders corresponding to the 
 
 For each model (Bicyclegan, Cogan, Cyclegan, Discogan, Dualgan, Munit, PixPix, PixelDA, Stargan and Unit), you can run training or testing code. These codes are located in the "src -> model -> Bicyclegan/Cogan/Cyclegan/Discogan/Dua/Munit/ PixPix/PixelDA/Stargan/Unit" folders.
 
-Running the training code trains the model on the public dataset(SynthRAD2025). Experiment parameters can be set using the configuration files "bicyclegan_train.yaml", "cogan_train.yaml","cyclegan_train.yaml", "discogan_train.yaml", "dualgan_train.yaml", "munit_train.yaml", "pix2pix_train.yaml", "pixelda_train.yaml", "stargan_train.yaml" or "unit_train.yaml".
-Running the test code tests the trained model on the desired dataset. Experiment parameters, including the test dataset, can be set using the configuration files "bicyclegan_test.yaml", "cogan_test.yaml","cyclegan_test.yaml", "discogan_test.yaml", "dualgan_test.yaml", "munit_test.yaml", "pix2pix_test.yaml", "pixelda_test.yaml", "stargan_test.yaml" or "unit_test.yaml".
+1. Running the training code trains the model on the public dataset(SynthRAD2025). Experiment parameters can be set using the configuration files "bicyclegan_train.yaml", "cogan_train.yaml","cyclegan_train.yaml", "discogan_train.yaml", "dualgan_train.yaml", "munit_train.yaml", "pix2pix_train.yaml", "pixelda_train.yaml", "stargan_train.yaml" or "unit_train.yaml".
+2. Running the test code tests the trained model on the desired dataset. Experiment parameters, including the test dataset, can be set using the configuration files "bicyclegan_test.yaml", "cogan_test.yaml","cyclegan_test.yaml", "discogan_test.yaml", "dualgan_test.yaml", "munit_test.yaml", "pix2pix_test.yaml", "pixelda_test.yaml", "stargan_test.yaml" or "unit_test.yaml".
 
 # Contact
 For questions and comments, feel free to contact: alessandro.pesci@unicampus.it, valerio.guarrasi@unicampus.it
